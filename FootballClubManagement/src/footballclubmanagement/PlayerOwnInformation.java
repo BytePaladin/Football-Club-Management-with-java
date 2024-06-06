@@ -30,7 +30,7 @@ public class PlayerOwnInformation extends javax.swing.JFrame {
         PlayerInfo = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        PlayerInfoPage = new javax.swing.JTextArea();
+        infoArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,7 +42,6 @@ public class PlayerOwnInformation extends javax.swing.JFrame {
         PlayerInfo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         PlayerInfo.setForeground(new java.awt.Color(255, 255, 255));
         PlayerInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        PlayerInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/soccer (1).png"))); // NOI18N
         PlayerInfo.setText("PLAYER'S INFORMATION");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -64,10 +63,10 @@ public class PlayerOwnInformation extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(204, 204, 255));
         jPanel4.setForeground(new java.awt.Color(0, 0, 0));
 
-        PlayerInfoPage.setBackground(new java.awt.Color(204, 204, 255));
-        PlayerInfoPage.setColumns(20);
-        PlayerInfoPage.setRows(5);
-        jScrollPane1.setViewportView(PlayerInfoPage);
+        infoArea.setBackground(new java.awt.Color(204, 204, 255));
+        infoArea.setColumns(20);
+        infoArea.setRows(5);
+        jScrollPane1.setViewportView(infoArea);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -166,7 +165,7 @@ public class PlayerOwnInformation extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel PlayerInfo;
-    private javax.swing.JTextArea PlayerInfoPage;
+    private javax.swing.JTextArea infoArea;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;

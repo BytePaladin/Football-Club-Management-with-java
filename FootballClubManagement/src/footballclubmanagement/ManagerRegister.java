@@ -13,6 +13,7 @@ public class ManagerRegister extends javax.swing.JFrame {
     /**
      * Creates new form ManagerRegister
      */
+    boolean registerSuccessful = false ;
     public ManagerRegister() {
         initComponents();
     }
@@ -31,15 +32,18 @@ public class ManagerRegister extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         Name = new javax.swing.JTextField();
-        Password = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         registerButton = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        regSuccess = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        invalidLen = new javax.swing.JLabel();
+        invalidName = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        Password = new javax.swing.JPasswordField();
+        LoginLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(400, 200));
-        setPreferredSize(new java.awt.Dimension(700, 400));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
@@ -59,9 +63,6 @@ public class ManagerRegister extends javax.swing.JFrame {
         Name.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         Name.setForeground(new java.awt.Color(0, 0, 0));
 
-        Password.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        Password.setForeground(new java.awt.Color(0, 0, 0));
-
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Minimum 5 and Maximum 12 Characters");
 
@@ -69,17 +70,41 @@ public class ManagerRegister extends javax.swing.JFrame {
         registerButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         registerButton.setForeground(new java.awt.Color(255, 255, 255));
         registerButton.setText("Register");
+        registerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerButtonActionPerformed(evt);
+            }
+        });
 
-        jTextField1.setBackground(new java.awt.Color(51, 51, 51));
-        jTextField1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setText("Register Successful");
-        jTextField1.setBorder(null);
+        regSuccess.setBackground(new java.awt.Color(51, 51, 51));
+        regSuccess.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        regSuccess.setForeground(new java.awt.Color(255, 255, 255));
+        regSuccess.setBorder(null);
 
         jButton1.setBackground(new java.awt.Color(102, 102, 255));
         jButton1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Go To Login Page");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        invalidLen.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        invalidLen.setForeground(new java.awt.Color(255, 255, 255));
+
+        invalidName.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        invalidName.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Minimum 5 and Maximum 12 Characters");
+
+        Password.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        Password.setForeground(new java.awt.Color(0, 0, 0));
+
+        LoginLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        LoginLabel.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -88,6 +113,7 @@ public class ManagerRegister extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(71, 71, 71)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(registerButton)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -98,10 +124,20 @@ public class ManagerRegister extends javax.swing.JFrame {
                             .addComponent(Name, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
                             .addComponent(Password)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(regSuccess, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(60, 60, 60)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(214, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(invalidLen, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(invalidName, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(LoginLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(80, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(97, 97, 97)
@@ -114,10 +150,15 @@ public class ManagerRegister extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(62, 62, 62)
-                .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(invalidName))
+                .addGap(13, 13, 13)
+                .addComponent(jLabel6)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(invalidLen)
                     .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
@@ -126,7 +167,8 @@ public class ManagerRegister extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(regSuccess, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LoginLabel))
                 .addGap(26, 26, 26))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -148,6 +190,37 @@ public class ManagerRegister extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
+        // TODO add your handling code here:
+        String name = Name.getText();
+        String password = Password.getText();
+        
+        if(name.length()<5 || name.length()>12) {
+            invalidName.setText("Invalid Length");
+        }
+        else if(password.length()<5 || password.length()>12){
+            invalidLen.setText("Invalid Length");
+        }
+        else{
+          FootballClubManagement.writeManager(name, password);
+          regSuccess.setText("Register Successful");
+          registerSuccessful = true ;      
+         }
+        
+    }//GEN-LAST:event_registerButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        if(registerSuccessful==false){
+            LoginLabel.setText("Not Registered Yet");
+        }
+        else{
+            LoginPage loginpage= new LoginPage();
+            loginpage.show();
+            dispose();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,15 +258,19 @@ public class ManagerRegister extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LoginLabel;
     private javax.swing.JTextField Name;
-    private javax.swing.JTextField Password;
+    private javax.swing.JPasswordField Password;
+    private javax.swing.JLabel invalidLen;
+    private javax.swing.JLabel invalidName;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField regSuccess;
     private javax.swing.JButton registerButton;
     // End of variables declaration//GEN-END:variables
 }

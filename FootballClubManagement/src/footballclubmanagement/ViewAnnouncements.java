@@ -30,7 +30,7 @@ public class ViewAnnouncements extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         Announcements = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        TextArea = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,9 +63,10 @@ public class ViewAnnouncements extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTextPane1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextPane1.setForeground(new java.awt.Color(0, 0, 0));
-        jScrollPane2.setViewportView(jTextPane1);
+        TextArea.setEditable(false);
+        TextArea.setBackground(new java.awt.Color(255, 255, 255));
+        TextArea.setForeground(new java.awt.Color(0, 0, 0));
+        jScrollPane2.setViewportView(TextArea);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -147,9 +148,9 @@ public class ViewAnnouncements extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Announcements;
+    private javax.swing.JTextPane TextArea;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextPane jTextPane1;
     // End of variables declaration//GEN-END:variables
 }

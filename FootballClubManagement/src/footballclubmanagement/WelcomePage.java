@@ -109,9 +109,16 @@ public class WelcomePage extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        if(FootballClubManagement.readManager()==null){
+            ManagerRegister managerRegister = new ManagerRegister();
+            managerRegister.show();
+            dispose();
+        }
+        else{
         LoginPage loginpage = new LoginPage();
         loginpage.show();
         dispose();
+        }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

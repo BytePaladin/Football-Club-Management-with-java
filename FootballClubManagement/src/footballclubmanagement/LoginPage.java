@@ -9,7 +9,7 @@ package footballclubmanagement;
  * @author Sabit
  */
 public class LoginPage extends javax.swing.JFrame {
-
+    private String loginAs;
     /**
      * Creates new form LoginPage
      */
@@ -35,14 +35,13 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         Name = new javax.swing.JTextField();
-        Password = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        InvalidInputs = new javax.swing.JTextField();
+        loginMsg = new javax.swing.JTextField();
         Login = new javax.swing.JButton();
+        Password = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(400, 200));
-        setPreferredSize(new java.awt.Dimension(720, 480));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 204));
@@ -90,19 +89,24 @@ public class LoginPage extends javax.swing.JFrame {
         Name.setBackground(new java.awt.Color(51, 51, 51));
         Name.setForeground(new java.awt.Color(255, 255, 255));
 
-        Password.setBackground(new java.awt.Color(51, 51, 51));
-        Password.setForeground(new java.awt.Color(255, 255, 255));
-
-        InvalidInputs.setEditable(false);
-        InvalidInputs.setBackground(new java.awt.Color(0, 153, 204));
-        InvalidInputs.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        InvalidInputs.setForeground(new java.awt.Color(255, 255, 255));
-        InvalidInputs.setText("Invalid Credentials");
-        InvalidInputs.setBorder(null);
+        loginMsg.setEditable(false);
+        loginMsg.setBackground(new java.awt.Color(0, 153, 204));
+        loginMsg.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        loginMsg.setForeground(new java.awt.Color(255, 255, 255));
+        loginMsg.setBorder(null);
 
         Login.setBackground(new java.awt.Color(51, 51, 51));
         Login.setForeground(new java.awt.Color(255, 255, 255));
         Login.setText("Login");
+        Login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoginActionPerformed(evt);
+            }
+        });
+
+        Password.setBackground(new java.awt.Color(51, 51, 51));
+        Password.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        Password.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -134,14 +138,14 @@ public class LoginPage extends javax.swing.JFrame {
                                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(Name)
-                                    .addComponent(Password, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)))
-                            .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(Name, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                                    .addComponent(Password)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(loginMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44)
+                                .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(262, 262, 262)
-                        .addComponent(InvalidInputs, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(122, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -162,14 +166,14 @@ public class LoginPage extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(19, 19, 19)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                .addComponent(InvalidInputs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addComponent(Login)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(loginMsg))
                 .addGap(52, 52, 52))
         );
 
@@ -189,14 +193,33 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void LoginChosenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginChosenActionPerformed
         // TODO add your handling code here:
-
+       
     }//GEN-LAST:event_LoginChosenActionPerformed
 
     private void LoginComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginComboBoxActionPerformed
         // TODO add your handling code here:
-        String login = LoginComboBox.getSelectedItem().toString();
-        LoginChosen.setText(login);
+        loginAs = LoginComboBox.getSelectedItem().toString();
+        loginAs.trim();
+        LoginChosen.setText(loginAs);
     }//GEN-LAST:event_LoginComboBoxActionPerformed
+
+    private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
+        // TODO add your handling code here:
+        String name = Name.getText();
+        String pass = Password.getText();
+        if(loginAs.equals("Manager")){
+            Manager manager = FootballClubManagement.readManager();
+            if(manager.getPerson().getName().equals(name) && manager.getPerson().getPassword().equals(pass)){
+                loginMsg.setText("Login Successful");
+                ManagerPage managerPage = new ManagerPage();
+                managerPage.show();
+                dispose();
+            }
+            else{
+                loginMsg.setText("Invalid Credentials");
+            }
+       }
+    }//GEN-LAST:event_LoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -234,12 +257,11 @@ public class LoginPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField InvalidInputs;
     private javax.swing.JButton Login;
     private javax.swing.JTextField LoginChosen;
     private javax.swing.JComboBox<String> LoginComboBox;
     private javax.swing.JTextField Name;
-    private javax.swing.JTextField Password;
+    private javax.swing.JPasswordField Password;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -247,5 +269,6 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField loginMsg;
     // End of variables declaration//GEN-END:variables
 }
