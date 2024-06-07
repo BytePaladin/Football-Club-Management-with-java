@@ -1,2 +1,0 @@
-footballclubmanagement.Player
-Player
