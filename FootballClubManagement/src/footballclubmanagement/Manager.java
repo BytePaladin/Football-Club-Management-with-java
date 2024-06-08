@@ -1,5 +1,9 @@
 package footballclubmanagement;
 
+/**
+ *
+ * @author Sabit
+ */
 public class Manager  extends User{
     private String name , password;
    
@@ -8,7 +12,7 @@ public class Manager  extends User{
     }
 
     public String getName() {
-        return name;
+        return super.getPerson().getName();
     }
 
     public void setName(String name) {
@@ -25,7 +29,7 @@ public class Manager  extends User{
 
     @Override
     public String toString() {
-        return "Manager{" + "name=" + name + ", password=" + password + '}';
+        return "Manager{" + "name=" + super.getPerson().getName() + ", password=" + super.getPerson().getPassword() + '}';
     }
 
     

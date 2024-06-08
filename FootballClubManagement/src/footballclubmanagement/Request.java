@@ -1,7 +1,10 @@
 package footballclubmanagement;
 
 public class Request {
-    private String request , name , date ;
+
+    private String request;
+    private String name;
+    private String date;
 
     public Request(String request, String name, String date) {
         this.request = request;
@@ -13,29 +16,16 @@ public class Request {
         return request;
     }
 
-    public void setRequest(String request) {
-        this.request = request;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getDate() {
         return date;
     }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
-
     @Override
     public String toString() {
-        return "Request = " + request + ", name = " + name + ", date = " + date ;
+        return "Request = " + request  + ", From = " + name +  ", date= " + date + "\n";
     }
-    
 }

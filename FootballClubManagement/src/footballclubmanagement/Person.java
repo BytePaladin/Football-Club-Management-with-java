@@ -1,5 +1,9 @@
 package footballclubmanagement;
 
+/**
+ *
+ * @author Sabit
+ */
 public class Person {
     private String name,password;
     

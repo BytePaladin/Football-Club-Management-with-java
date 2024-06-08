@@ -8,6 +8,7 @@ package footballclubmanagement;
  *
  * @author Sabit
  */
+import java.time.LocalDate;
 public class MakeAnnouncement extends javax.swing.JFrame {
 
     /**
@@ -29,10 +30,10 @@ public class MakeAnnouncement extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        announcementArea = new javax.swing.JTextArea();
         returnButton = new javax.swing.JButton();
         makeAnn = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        publishedLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(400, 100));
@@ -45,26 +46,35 @@ public class MakeAnnouncement extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("     Make Announcement");
 
-        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        announcementArea.setBackground(new java.awt.Color(255, 255, 255));
+        announcementArea.setColumns(20);
+        announcementArea.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        announcementArea.setForeground(new java.awt.Color(0, 0, 0));
+        announcementArea.setRows(5);
+        jScrollPane1.setViewportView(announcementArea);
 
         returnButton.setBackground(new java.awt.Color(51, 51, 51));
         returnButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         returnButton.setForeground(new java.awt.Color(255, 255, 255));
         returnButton.setText("Return");
+        returnButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnButtonActionPerformed(evt);
+            }
+        });
 
         makeAnn.setBackground(new java.awt.Color(51, 51, 51));
         makeAnn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         makeAnn.setForeground(new java.awt.Color(255, 255, 255));
         makeAnn.setText("Publish Announcement");
+        makeAnn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                makeAnnActionPerformed(evt);
+            }
+        });
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Published");
+        publishedLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        publishedLabel.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -81,7 +91,7 @@ public class MakeAnnouncement extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(returnButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(publishedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(115, 115, 115)
                                 .addComponent(makeAnn))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -98,7 +108,7 @@ public class MakeAnnouncement extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(makeAnn)
                     .addComponent(returnButton)
-                    .addComponent(jLabel2))
+                    .addComponent(publishedLabel))
                 .addGap(40, 40, 40))
         );
 
@@ -115,6 +125,21 @@ public class MakeAnnouncement extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void makeAnnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makeAnnActionPerformed
+        // TODO add your handling code here:
+        FootballClubManagement.readAnnouncements();
+        LocalDate date = LocalDate.now();
+        String dateString = date.toString();
+        Announcement a = new Announcement(announcementArea.getText(),FootballClubManagement.loggedInManager.getName(),dateString);
+        FootballClubManagement.addAnnouncement(a);
+        publishedLabel.setText("Published");
+    }//GEN-LAST:event_makeAnnActionPerformed
+
+    private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_returnButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,12 +177,12 @@ public class MakeAnnouncement extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea announcementArea;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton makeAnn;
+    private javax.swing.JLabel publishedLabel;
     private javax.swing.JButton returnButton;
     // End of variables declaration//GEN-END:variables
 }

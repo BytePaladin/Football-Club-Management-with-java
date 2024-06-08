@@ -1,5 +1,9 @@
 package footballclubmanagement;
 
+/**
+ *
+ * @author Sabit
+ */
 import java.time.LocalDate;
 
 public class Coach extends User implements Contract {
@@ -52,7 +56,7 @@ public class Coach extends User implements Contract {
 
     @Override
     public String toString() {
-        return "Coach{" + "startDate=" + startDate + ", endDate=" + endDate + ", contractDuration=" + contractDuration + '}';
+        return "Coach name : "+ super.getPerson().getName() + ", startDate=" + startDate + ", endDate=" + endDate ;
     }
 
     

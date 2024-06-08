@@ -1,5 +1,9 @@
 package footballclubmanagement;
 
+/**
+ *
+ * @author Sabit
+ */
 public abstract class User {
     private Person person;
 

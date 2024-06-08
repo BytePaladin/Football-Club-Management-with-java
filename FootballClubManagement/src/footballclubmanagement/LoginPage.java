@@ -9,7 +9,9 @@ package footballclubmanagement;
  * @author Sabit
  */
 public class LoginPage extends javax.swing.JFrame {
+
     private String loginAs;
+
     /**
      * Creates new form LoginPage
      */
@@ -193,7 +195,7 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void LoginChosenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginChosenActionPerformed
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_LoginChosenActionPerformed
 
     private void LoginComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginComboBoxActionPerformed
@@ -207,18 +209,56 @@ public class LoginPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         String name = Name.getText();
         String pass = Password.getText();
-        if(loginAs.equals("Manager")){
+
+        if (loginAs.equals("Manager")) {
             Manager manager = FootballClubManagement.readManager();
-            if(manager.getPerson().getName().equals(name) && manager.getPerson().getPassword().equals(pass)){
+            if (manager != null && manager.getPerson().getName().equals(name) && manager.getPerson().getPassword().equals(pass)) {
+                FootballClubManagement.loggedInManager = manager;
+                System.out.println(FootballClubManagement.loggedInManager.toString());
                 loginMsg.setText("Login Successful");
                 ManagerPage managerPage = new ManagerPage();
                 managerPage.show();
                 dispose();
-            }
-            else{
+            } else {
                 loginMsg.setText("Invalid Credentials");
             }
-       }
+        } else if (loginAs.equals("Coach")) {
+            FootballClubManagement.readCoach();
+            boolean found = false;
+            for (Coach c : FootballClubManagement.coaches) {
+                if (c.getPerson().getName().equals(name) && c.getPerson().getPassword().equals(pass)) {
+                    FootballClubManagement.loggedInCoach = c;
+                    loginMsg.setText("Login Successful");
+                    CoachPage coachPage = new CoachPage();
+                    coachPage.show();
+                    dispose();
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                loginMsg.setText("Invalid Credentials");
+            }
+        } else if (loginAs.equals("Player")) {
+            FootballClubManagement.readPlayer();
+            boolean found = false;
+            for (Player p : FootballClubManagement.players) {
+                if (p.getPerson().getName().equals(name) && p.getPerson().getPassword().equals(pass)) {
+                    FootballClubManagement.loggedInPlayer = p;
+                    loginMsg.setText("Login Successful");
+                    PlayerPage playerPage = new PlayerPage();
+                    playerPage.show();
+                    dispose();
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                loginMsg.setText("Invalid Credentials");
+            }
+        } else {
+            loginMsg.setText("Invalid Credentials");
+        }
     }//GEN-LAST:event_LoginActionPerformed
 
     /**
