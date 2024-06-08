@@ -1,2 +1,1 @@
-Rafid,232,69,Back-center,2025-01-01,114577,Injured,2024-05-19 11:52:40
-
+Player1,pass1,Forward,10,1,2023-01-01,2024-01-01,1000000.0,Healthy

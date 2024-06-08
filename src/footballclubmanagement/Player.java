@@ -10,6 +10,18 @@ public class Player extends User implements Contract  {
     private double contractMoney;
     private String healthStatus;
     private String position;
+    private int contractDuration;
+    
+    public Player(Person person, int jerseyNumber, int id,String position, int contractDuration, double contractMoney, String healthStatus) {
+        super(person);
+        this.jerseyNumber = jerseyNumber;
+        this.id = id;
+        this.position = position;
+        this.contractDuration = contractDuration;
+        this.contractMoney = contractMoney;
+        this.healthStatus = healthStatus;
+        initializeContractDates();
+    }
 
     public Player(Person person, int jerseyNumber, int id,String position, String startDate, String endDate, double contractMoney, String healthStatus) {
         super(person);
@@ -42,6 +54,10 @@ public class Player extends User implements Contract  {
         startDate = nextStartDate;
         endDate = nextEndDate;
         */
+    }
+
+    public double getContractMoney() {
+        return contractMoney;
     }
 
     public Person getPerson() {
@@ -104,8 +120,9 @@ public class Player extends User implements Contract  {
     }
 
     @Override
-    public double getContractDetails() {
-        return contractMoney;
+    public void initializeContractDates() {
+        this.startDate = LocalDate.now();
+        this.endDate = startDate.plusMonths(contractDuration);
     }
 
     @Override

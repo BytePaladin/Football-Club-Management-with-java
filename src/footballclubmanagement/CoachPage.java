@@ -35,6 +35,8 @@ public class CoachPage extends javax.swing.JFrame {
         ViewAnnouncement = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(300, 100));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(153, 255, 255));
 

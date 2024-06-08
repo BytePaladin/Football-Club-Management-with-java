@@ -32,6 +32,8 @@ public class CoachOwnDetails extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(300, 100));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 255, 204));
 
@@ -40,6 +42,7 @@ public class CoachOwnDetails extends javax.swing.JFrame {
         jLabel1.setText("COACH INFORMATION");
         jLabel1.setToolTipText("");
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);

@@ -1,4 +1,3 @@
-
 package footballclubmanagement;
 
 import java.io.*;
@@ -6,12 +5,14 @@ import java.util.*;
 
 public class FootballClubManagement {
 
-    public static int index = 0;
     public static List<Player> players = new ArrayList<>();
     public static List<Coach> coaches = new ArrayList<>();
-    
-    public static Manager readManager() {
+    public static List<Announcement> announcements = new ArrayList<>();
+    public static List<Request> playerRequests = new ArrayList<>();
+    public static List<Request> coachRequests = new ArrayList<>();
 
+    public static Manager readManager() {
+        
         try {
             Manager manager = null;
             FileReader fr = new FileReader("manager.txt");
@@ -22,40 +23,43 @@ public class FootballClubManagement {
                 if (parts.length >= 2) {
                     String name = parts[0];
                     String pass = parts[1];
-                    
-                    manager = new Manager(new Person(name,pass));
-
+                    manager = new Manager(new Person(name, pass));
                 }
             }
             reader.close();
             return manager;
-
         } catch (Exception e) {
             System.out.println(e);
-
         }
         return null;
-
     }
 
+    
+    
+    
+    
     public static void writeManager(String name, String password) {
         try {
             FileWriter fw = new FileWriter("manager.txt");
             BufferedWriter writer = new BufferedWriter(fw);
             writer.write(name + "," + password);
             writer.close();
-
         } catch (Exception e) {
             System.out.println(e);
         }
     }
 
-    public static void readPlayer() {
+    
+    
+    
+    
+    public static List<Player> readPlayer() {
+        players.clear();
         try (BufferedReader reader = new BufferedReader(new FileReader("player.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
-                if (parts.length >= 8) {
+                if (parts.length >= 9) { // Changed to 9 to accommodate health status field
                     String name = parts[0];
                     String pass = parts[1];
                     String position = parts[2];
@@ -66,7 +70,7 @@ public class FootballClubManagement {
                     double contractMoney = Double.parseDouble(parts[7]);
                     String healthStatus = parts[8];
 
-                    Player player = new Player(new Person(name, pass), jerseyNumber, id , position, startDateStr, endDateStr, contractMoney, healthStatus);
+                    Player player = new Player(new Person(name, pass), jerseyNumber, id, position, startDateStr, endDateStr, contractMoney, healthStatus);
                     players.add(player);
                 }
             }
@@ -74,16 +78,21 @@ public class FootballClubManagement {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return players;
     }
+    
+    
+    
+    
+    
 
     public static void writePlayer() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("player.txt"))) {
             for (Player player : players) {
                 writer.write(player.getPerson().getName() + "," + player.getPerson().getPassword() + ","
-                        + player.getJerseyNumber() + "," +player.getId()+","+player.getPosition()+","+ player.getStartDate() + ","
-                        + player.getEndDate() + "," + player.getContractDetails() + "," + player.getHealthStatus()
-                        + "\n");
-              
+                        + player.getPosition() + "," + player.getJerseyNumber() + "," + player.getId() + ","
+                        + player.getStartDate() + "," + player.getEndDate() + "," + player.getContractMoney() + ","
+                        + player.getHealthStatus() + "\n");
             }
             writer.close();
         } catch (IOException e) {
@@ -91,7 +100,12 @@ public class FootballClubManagement {
         }
     }
 
-    public static void readCoach() {
+    
+    
+    
+    
+    public static List<Coach> readCoach() {
+       coaches.clear();
         try (BufferedReader reader = new BufferedReader(new FileReader("coach.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -101,18 +115,23 @@ public class FootballClubManagement {
                     String password = parts[1];
                     String startDate = parts[2];
                     String endDate = parts[3];
-                   
+
                     Coach coach = new Coach(new Person(name, password), startDate, endDate);
                     coaches.add(coach);
                 }
             }
             reader.close();
-        } 
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
+        return coaches;
     }
-
+    
+    
+    
+    
+    
+    
     public static void saveCoachesToFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("coach.txt"))) {
             for (Coach coach : coaches) {
@@ -120,17 +139,282 @@ public class FootballClubManagement {
                         + coach.getStartDate() + "," + coach.getEndDate() + "\n");
             }
             writer.close();
-            
-        } 
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
     
-    public static void main(String[] args) {
-        Manager manager = readManager();
-        System.out.println(manager.toString());
+    
+    
+    
+    
+    public static List<Announcement> readAnnouncements() {
+        announcements.clear();
+        try (BufferedReader reader = new BufferedReader(new FileReader("Announcements.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length >= 3) { // Changed to 3 to accommodate date field
+                    String announcement = parts[0];
+                    String name = parts[1];
+                    String date = parts[2];
 
+                    Announcement a = new Announcement(announcement, name, date);
+                    announcements.add(a);
+                }
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        return announcements;
     }
 
+    
+    
+    
+    
+    
+    public static void writeAnnouncement() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("Announcements.txt"))) {
+            for (Announcement a : announcements) {
+                writer.write(a.getAnnouncement() + "," + a.getName() + "," + a.getDate() + "\n");
+            }
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    
+    
+    
+    
+    public static void addAnnouncement(Announcement a) {
+         announcements.add(0, a);  // Add the announcement at the beginning of the list
+         writeAnnouncement();
+    }
+
+   
+    
+    
+    
+    
+    
+    public static List<Request> readRequests(String filename){
+        if(filename.equals("PlayerRequests.txt")){
+            playerRequests.clear();
+            try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length >= 2) {
+                    String request = parts[0];
+                    String name = parts[1];
+                    String date = parts[2];
+                    
+                   
+                    Request a = new Request(request,name , date);
+                    playerRequests.add(a);
+                }
+                
+            }
+            reader.close();
+        } 
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+            return playerRequests;
+        }
+        else{
+            coachRequests.clear();
+            try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length >= 2) {
+                    String request = parts[0];
+                    String name = parts[1];
+                    String date = parts[2];
+                    
+                   
+                    Request a = new Request(request,name , date);
+                    coachRequests.add(a);
+                }
+                
+            }
+            reader.close();
+        } 
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+            return coachRequests;
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+   public static void writeRequest(String filename, List<Request> requests) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+            for (Request r : requests) {
+                writer.write(r.getRequest() + "," + r.getName() + "," + r.getDate() + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+   
+   
+   
+   
+   
+
+    public static void addNewPlayer(Player player) {
+        players.add(player);
+        writePlayer();
+    }
+    
+    
+    
+    
+    
+    
+
+    public static void addNewCoach(Coach coach) {
+        coaches.add(coach);
+        saveCoachesToFile();
+    }
+    
+    
+    
+    
+    
+    public static void addPlayerRequest(Request r){
+        playerRequests.add(0, r);  // Add the request at the beginning of the list
+        writeRequest("PlayerRequests.txt", playerRequests);
+    }
+    
+    
+    
+    
+    
+    
+     public static void addCoachRequest(Request r){
+         coachRequests.add(0, r);  // Add the request at the beginning of the list
+         writeRequest("CoachRequests.txt", coachRequests);
+        
+    }
+
+     
+     
+     
+     
+     
+     
+    public static Player searchPlayer(int id) {
+        for (Player player : players) {
+            if (player.getId() == id) {
+                return player;
+            }
+        }
+        return null;
+    }
+
+    
+    
+    
+    
+    public static Coach searchCoach(String name) {
+        for (Coach coach : coaches) {
+            if (coach.getPerson().getName().equals(name)) {
+                return coach;
+            }
+        }
+        return null;
+    }
+
+    
+    
+    
+    
+    
+    
+    public static void deletePlayer(int id) {
+        Player player = searchPlayer(id);
+        if (player != null) {
+            players.remove(player);
+            writePlayer();
+        }
+    }
+
+    
+    
+    
+    
+    
+    public static void deleteCoach(String name) {
+        Coach coach = searchCoach(name);
+        if (coach != null) {
+            coaches.remove(coach);
+            saveCoachesToFile();
+        }
+    }
+    
+    
+    
+    
+    
+    
+
+    public static void deleteAllPlayers() {
+        players.clear();
+        writePlayer();
+    }
+    
+    
+    
+    
+    
+
+    public static void deleteAllCoaches() {
+        coaches.clear();
+        saveCoachesToFile();
+    }
+    
+    
+    
+    
+    
+    
+
+    public static void main(String[] args) {
+        try {
+           
+
+             
+            readAnnouncements();
+
+             
+                  
+            readRequests("PlayerRequests.txt");
+            
+            
+  
+            readRequests("CoachRequests.txt");
+          
+            
+
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
