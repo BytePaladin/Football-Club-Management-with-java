@@ -95,10 +95,20 @@ public class ManagerPage extends javax.swing.JFrame {
         playerInfoUpdate.setBackground(new java.awt.Color(51, 51, 51));
         playerInfoUpdate.setForeground(new java.awt.Color(255, 255, 255));
         playerInfoUpdate.setText("Player Info Update");
+        playerInfoUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playerInfoUpdateActionPerformed(evt);
+            }
+        });
 
         coachInfoUpdate.setBackground(new java.awt.Color(51, 51, 51));
         coachInfoUpdate.setForeground(new java.awt.Color(255, 255, 255));
         coachInfoUpdate.setText("Coach Info Update");
+        coachInfoUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                coachInfoUpdateActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -390,6 +400,18 @@ public class ManagerPage extends javax.swing.JFrame {
         CoachRegister coachRegister = new CoachRegister();
         coachRegister.show();
     }//GEN-LAST:event_hireCoachActionPerformed
+
+    private void playerInfoUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playerInfoUpdateActionPerformed
+        // TODO add your handling code here:
+        updatePlayer upP = new updatePlayer();
+        upP.show();
+    }//GEN-LAST:event_playerInfoUpdateActionPerformed
+
+    private void coachInfoUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coachInfoUpdateActionPerformed
+        // TODO add your handling code here:
+        CoachUpdate coachUpdate = new CoachUpdate();
+        coachUpdate.show();
+    }//GEN-LAST:event_coachInfoUpdateActionPerformed
 
     /**
      * @param args the command line arguments

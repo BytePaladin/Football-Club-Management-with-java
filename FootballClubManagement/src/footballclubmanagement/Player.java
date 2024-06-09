@@ -6,17 +6,17 @@ package footballclubmanagement;
  */
 import java.time.LocalDate;
 
-public class Player extends User implements Contract  {
+public class Player extends User implements Contract {
 
-    private int jerseyNumber,id;
+    private int jerseyNumber, id;
     private LocalDate startDate;
     private LocalDate endDate;
     private double contractMoney;
     private String healthStatus;
     private String position;
     private int contractDuration;
-    
-    public Player(Person person, int jerseyNumber, int id,String position, int contractDuration, double contractMoney, String healthStatus) {
+
+    public Player(Person person, int jerseyNumber, int id, String position, int contractDuration, double contractMoney, String healthStatus) {
         super(person);
         this.jerseyNumber = jerseyNumber;
         this.id = id;
@@ -27,7 +27,7 @@ public class Player extends User implements Contract  {
         initializeContractDates();
     }
 
-    public Player(Person person, int jerseyNumber, int id,String position, String startDate, String endDate, double contractMoney, String healthStatus) {
+    public Player(Person person, int jerseyNumber, int id, String position, String startDate, String endDate, double contractMoney, String healthStatus) {
         super(person);
         this.jerseyNumber = jerseyNumber;
         this.id = id;
@@ -38,26 +38,13 @@ public class Player extends User implements Contract  {
         this.healthStatus = healthStatus;
     }
 
-
-
-    public boolean isContractExpired() {
-        LocalDate today = LocalDate.now();
-        return today.isAfter(endDate);
-    }
-
     public void updateHealthStatus(String update) {
         healthStatus = update;
     }
 
-    public void updateContractEndDate() {
-       /* LocalDate currentMonth = LocalDate.now();
-        int nextMonth = (currentMonth.getMonthValue() % 12) + 1;
-        int nextYear = currentMonth.getYear() + (nextMonth - 1) / 12;
-        LocalDate nextStartDate = LocalDate.of(nextYear, nextMonth, 1);
-        LocalDate nextEndDate = nextStartDate.plusDays(30);
-        startDate = nextStartDate;
-        endDate = nextEndDate;
-        */
+    public void updateContractEndDate(int newContractDuration) {
+
+        this.endDate = this.endDate.plusMonths(newContractDuration);
     }
 
     public double getContractMoney() {
@@ -68,7 +55,7 @@ public class Player extends User implements Contract  {
         return super.getPerson();
     }
 
-    public void setPerson(Person person){
+    public void setPerson(Person person) {
         super.setPerson(person);
     }
 
@@ -104,7 +91,6 @@ public class Player extends User implements Contract  {
         this.position = position;
     }
 
-
     public void setContractMoney(double contractMoney) {
         this.contractMoney = contractMoney;
     }
@@ -112,13 +98,15 @@ public class Player extends User implements Contract  {
     public String getHealthStatus() {
         return healthStatus;
     }
-      public int getId() {
+
+    public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
     }
+
     public void setHealthStatus(String healthStatus) {
         this.healthStatus = healthStatus;
     }
@@ -129,13 +117,15 @@ public class Player extends User implements Contract  {
         this.endDate = startDate.plusMonths(contractDuration);
     }
 
+  
+
     @Override
     public String toString() {
-        return "Player name : "+ super.getPerson().getName() + ", Position = " + position +", JerseyNumber = " + jerseyNumber + ", Id = " + id + ", Contract start date =" + startDate + ", Contract end date = " + endDate + ", ContractMoney = " + contractMoney + ", Health Status = " + healthStatus ;
+        return "Player name : " + super.getPerson().getName() + ", Position = " + position + ", JerseyNumber = " + jerseyNumber + ", Id = " + id + ", Contract start date =" + startDate + ", Contract end date = " + endDate + ", ContractMoney = " + contractMoney + ", Health Status = " + healthStatus;
     }
-    
-    public String limitedToString(){
-        return "Player name : "+ super.getPerson().getName() + ", Position = " + position + ", JerseyNumber = " + jerseyNumber  + ", Contract start date =" + startDate + ", contract end date = " + endDate  + ", Health Status = " + healthStatus ;
+
+    public String limitedToString() {
+        return "Player name : " + super.getPerson().getName() + ", Position = " + position + ", JerseyNumber = " + jerseyNumber + ", Contract start date =" + startDate + ", contract end date = " + endDate + ", Health Status = " + healthStatus;
     }
-    
+
 }

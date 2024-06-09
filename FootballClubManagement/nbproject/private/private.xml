@@ -3,28 +3,30 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/FootballClubManagement.java</file>
-            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/Player.java</file>
             <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/CoachPage.java</file>
             <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/PlayerPage.java</file>
             <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/User.java</file>
-            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/Coach.java</file>
             <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/PlayerRegister.java</file>
-            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/CoachOwnDetails.java</file>
             <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/CoachRegister.java</file>
-            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/Contract.java</file>
             <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/Announcement.java</file>
-            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/OtherPlayerInformation.java</file>
+            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/PlayerRequests.java</file>
+            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/chat%20(1).png</file>
+            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/Manager.java</file>
+            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/Person.java</file>
+            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/CoachUpdate.java</file>
+            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/FootballClubManagement.java</file>
+            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/Player.java</file>
+            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/Coach.java</file>
+            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/CoachOwnDetails.java</file>
+            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/Contract.java</file>
             <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/MakeAnnouncement.java</file>
             <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/ManagerRegister.java</file>
-            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/PlayerRequests.java</file>
+            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/updatePlayer.java</file>
             <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/ManagerPage.java</file>
-            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/Manager.java</file>
             <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/WelcomePage.java</file>
             <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/Request.java</file>
             <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/LoginPage.java</file>
-            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/PlayerOwnInformation.java</file>
-            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/Person.java</file>
+            <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/PlayerUpdateByCoach.java</file>
             <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/ViewAll.java</file>
             <file>file:/C:/Users/Sabit/Documents/NetBeansProjects/FootballClubManagement/src/footballclubmanagement/CoachRequests.java</file>
         </group>

@@ -31,12 +31,10 @@ public class Coach extends User implements Contract {
         this.endDate = startDate.plusMonths(contractDuration);
     }
 
-    
-    public boolean isContractExpired() {
-        LocalDate today = LocalDate.now();
-        return today.isAfter(endDate);
-    }
+    public void updateContractEndDate(int newContractDuration) {
 
+        this.endDate = this.endDate.plusMonths(newContractDuration);
+    }
     
     public LocalDate getStartDate() {
         return startDate;

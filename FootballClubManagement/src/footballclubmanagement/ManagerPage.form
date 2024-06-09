@@ -264,6 +264,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Player Info Update"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="playerInfoUpdateActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="coachInfoUpdate">
           <Properties>
@@ -275,6 +278,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Coach Info Update"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="coachInfoUpdateActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>

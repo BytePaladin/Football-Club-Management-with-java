@@ -1,4 +1,0 @@
-sabit khan,pass1,Forward,10,1,2023-01-01,2024-01-01,1000000.0,Healthy
-farhan,pass2,center,11,1,2023-01-01,2024-01-01,2000000.0,Healthy
-sabit 2,sabit12,center back,123,12,2024-06-08,2025-05-08,2500000.0,fit
-hello world,hello,center half,122,123,2024-06-08,2026-05-08,2300000.0,fit af
