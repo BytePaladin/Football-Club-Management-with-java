@@ -4,6 +4,8 @@
  */
 package footballclubmanagement;
 
+import java.util.List;
+
 /**
  *
  * @author USER
@@ -28,13 +30,14 @@ public class PlayerPage extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         Backdrop = new javax.swing.JPanel();
-        ViewAnnouncements = new javax.swing.JButton();
-        ViewOwnInformation = new javax.swing.JButton();
-        ViewOtherPlayers = new javax.swing.JButton();
-        MakeRequests = new javax.swing.JButton();
+        viewAnnouncements = new javax.swing.JButton();
+        viewOwnInformation = new javax.swing.JButton();
+        viewOtherPlayers = new javax.swing.JButton();
+        makeRequests = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         Title = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        close = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 51, 51));
@@ -48,30 +51,45 @@ public class PlayerPage extends javax.swing.JFrame {
 
         Backdrop.setBackground(new java.awt.Color(204, 204, 255));
 
-        ViewAnnouncements.setBackground(new java.awt.Color(0, 0, 102));
-        ViewAnnouncements.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        ViewAnnouncements.setForeground(new java.awt.Color(255, 255, 255));
-        ViewAnnouncements.setText("View  Player Announcements");
-        ViewAnnouncements.addActionListener(new java.awt.event.ActionListener() {
+        viewAnnouncements.setBackground(new java.awt.Color(0, 0, 102));
+        viewAnnouncements.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        viewAnnouncements.setForeground(new java.awt.Color(255, 255, 255));
+        viewAnnouncements.setText("View  Player Announcements");
+        viewAnnouncements.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ViewAnnouncementsActionPerformed(evt);
+                viewAnnouncementsActionPerformed(evt);
             }
         });
 
-        ViewOwnInformation.setBackground(new java.awt.Color(0, 0, 102));
-        ViewOwnInformation.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        ViewOwnInformation.setForeground(new java.awt.Color(255, 255, 255));
-        ViewOwnInformation.setText("View Own Information");
+        viewOwnInformation.setBackground(new java.awt.Color(0, 0, 102));
+        viewOwnInformation.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        viewOwnInformation.setForeground(new java.awt.Color(255, 255, 255));
+        viewOwnInformation.setText("View Own Information");
+        viewOwnInformation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewOwnInformationActionPerformed(evt);
+            }
+        });
 
-        ViewOtherPlayers.setBackground(new java.awt.Color(0, 0, 102));
-        ViewOtherPlayers.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        ViewOtherPlayers.setForeground(new java.awt.Color(255, 255, 255));
-        ViewOtherPlayers.setText("View Other Players' Information");
+        viewOtherPlayers.setBackground(new java.awt.Color(0, 0, 102));
+        viewOtherPlayers.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        viewOtherPlayers.setForeground(new java.awt.Color(255, 255, 255));
+        viewOtherPlayers.setText("View Other Players' Information");
+        viewOtherPlayers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewOtherPlayersActionPerformed(evt);
+            }
+        });
 
-        MakeRequests.setBackground(new java.awt.Color(0, 0, 102));
-        MakeRequests.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        MakeRequests.setForeground(new java.awt.Color(255, 255, 255));
-        MakeRequests.setText("Make requests");
+        makeRequests.setBackground(new java.awt.Color(0, 0, 102));
+        makeRequests.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        makeRequests.setForeground(new java.awt.Color(255, 255, 255));
+        makeRequests.setText("Make requests");
+        makeRequests.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                makeRequestsActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(51, 0, 51));
 
@@ -100,6 +118,16 @@ public class PlayerPage extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
+        close.setBackground(new java.awt.Color(102, 102, 255));
+        close.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        close.setForeground(new java.awt.Color(255, 255, 255));
+        close.setText("Exit");
+        close.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout BackdropLayout = new javax.swing.GroupLayout(Backdrop);
         Backdrop.setLayout(BackdropLayout);
         BackdropLayout.setHorizontalGroup(
@@ -109,14 +137,18 @@ public class PlayerPage extends javax.swing.JFrame {
                     .addGroup(BackdropLayout.createSequentialGroup()
                         .addGap(284, 284, 284)
                         .addGroup(BackdropLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(MakeRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ViewOtherPlayers)
-                            .addComponent(ViewOwnInformation, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ViewAnnouncements, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(makeRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(viewOtherPlayers)
+                            .addComponent(viewOwnInformation, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(viewAnnouncements, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(BackdropLayout.createSequentialGroup()
                         .addGap(184, 184, 184)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(155, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackdropLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(168, 168, 168))
         );
         BackdropLayout.setVerticalGroup(
             BackdropLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,14 +156,16 @@ public class PlayerPage extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addComponent(ViewAnnouncements)
+                .addComponent(viewAnnouncements)
                 .addGap(41, 41, 41)
-                .addComponent(ViewOwnInformation)
+                .addComponent(viewOwnInformation)
                 .addGap(38, 38, 38)
-                .addComponent(ViewOtherPlayers)
+                .addComponent(viewOtherPlayers)
                 .addGap(39, 39, 39)
-                .addComponent(MakeRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addComponent(makeRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addComponent(close)
+                .addGap(37, 37, 37))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -156,10 +190,40 @@ public class PlayerPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ViewAnnouncementsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewAnnouncementsActionPerformed
+    private void viewAnnouncementsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAnnouncementsActionPerformed
         // TODO add your handling code here:
+        List<Announcement> ann = FootballClubManagement.readAnnouncements();
+        ViewAll viewAnn = new ViewAll();
+        viewAnn.setAnnouncements(ann);
+        viewAnn.show();
                 
-    }//GEN-LAST:event_ViewAnnouncementsActionPerformed
+    }//GEN-LAST:event_viewAnnouncementsActionPerformed
+
+    private void viewOtherPlayersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewOtherPlayersActionPerformed
+        // TODO add your handling code here:
+        List<Player> p = FootballClubManagement.readPlayer();
+        ViewAll viewP = new ViewAll();
+        viewP.setPlayerLimitedInfo(p);
+        viewP.show();
+    }//GEN-LAST:event_viewOtherPlayersActionPerformed
+
+    private void closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_closeActionPerformed
+
+    private void viewOwnInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewOwnInformationActionPerformed
+        // TODO add your handling code here:
+        ViewAll viewPlayer = new ViewAll();
+        viewPlayer.setPlayerOwnInfo(FootballClubManagement.loggedInPlayer);
+        viewPlayer.show();
+    }//GEN-LAST:event_viewOwnInformationActionPerformed
+
+    private void makeRequestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makeRequestsActionPerformed
+        // TODO add your handling code here:
+        PlayerRequests pr = new PlayerRequests();
+        pr.show();
+    }//GEN-LAST:event_makeRequestsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,13 +262,14 @@ public class PlayerPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Backdrop;
-    private javax.swing.JButton MakeRequests;
     private javax.swing.JLabel Title;
-    private javax.swing.JButton ViewAnnouncements;
-    private javax.swing.JButton ViewOtherPlayers;
-    private javax.swing.JButton ViewOwnInformation;
+    private javax.swing.JButton close;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton makeRequests;
+    private javax.swing.JButton viewAnnouncements;
+    private javax.swing.JButton viewOtherPlayers;
+    private javax.swing.JButton viewOwnInformation;
     // End of variables declaration//GEN-END:variables
 }

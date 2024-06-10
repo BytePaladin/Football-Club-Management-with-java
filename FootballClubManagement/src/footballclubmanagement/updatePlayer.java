@@ -50,7 +50,6 @@ public class updatePlayer extends javax.swing.JFrame {
         updateButton = new javax.swing.JButton();
         jerseyNum = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         successful = new javax.swing.JLabel();
         close = new javax.swing.JButton();
@@ -106,9 +105,6 @@ public class updatePlayer extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Set New Password :");
 
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Minimum 5 and Maximum 12 Characters");
-
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("In months");
 
@@ -162,11 +158,8 @@ public class updatePlayer extends javax.swing.JFrame {
                                 .addComponent(updateButton))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addGap(57, 57, 57)))))
+                                .addComponent(jLabel1)
+                                .addGap(57, 57, 57)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(80, 80, 80)
@@ -260,9 +253,7 @@ public class updatePlayer extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel12)
-                .addGap(47, 47, 47)
+                .addGap(75, 75, 75)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(successful)
@@ -324,11 +315,13 @@ public class updatePlayer extends javax.swing.JFrame {
                         }
                         foundPlayer.setJerseyNumber(newJersey);
                         updated = true;
+                         FootballClubManagement.writePlayer();
                     }
 
                     if (!playerPosition.getText().isBlank()) {
                         foundPlayer.setPosition(playerPosition.getText());
                         updated = true;
+                         FootballClubManagement.writePlayer();
                     }
 
                     if (!conD.getText().isBlank()) {
@@ -340,6 +333,7 @@ public class updatePlayer extends javax.swing.JFrame {
                         } else {
                             foundPlayer.updateContractEndDate(newConD);
                             updated = true;
+                             FootballClubManagement.writePlayer();
                         }
                     }
 
@@ -347,16 +341,19 @@ public class updatePlayer extends javax.swing.JFrame {
                         double newConP = Double.parseDouble(conP.getText());
                         foundPlayer.setContractMoney(newConP);
                         updated = true;
+                         FootballClubManagement.writePlayer();
                     }
 
                     if (!health.getText().isBlank()) {
                         foundPlayer.setHealthStatus(health.getText());
                         updated = true;
+                         FootballClubManagement.writePlayer();
                     }
 
                     if (!password.getText().isBlank()) {
                         foundPlayer.getPerson().setPassword(password.getText());
                         updated = true;
+                         FootballClubManagement.writePlayer();
                     }
                 } catch (NumberFormatException e) {
                     updateMsg.setText("Invalid number format");
@@ -451,7 +448,6 @@ public class updatePlayer extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

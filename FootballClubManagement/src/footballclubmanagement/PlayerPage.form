@@ -76,10 +76,10 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="284" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="MakeRequests" min="-2" pref="287" max="-2" attributes="0"/>
-                              <Component id="ViewOtherPlayers" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="ViewOwnInformation" alignment="0" min="-2" pref="287" max="-2" attributes="0"/>
-                              <Component id="ViewAnnouncements" alignment="0" min="-2" pref="287" max="-2" attributes="0"/>
+                              <Component id="makeRequests" min="-2" pref="287" max="-2" attributes="0"/>
+                              <Component id="viewOtherPlayers" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="viewOwnInformation" alignment="0" min="-2" pref="287" max="-2" attributes="0"/>
+                              <Component id="viewAnnouncements" alignment="0" min="-2" pref="287" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -87,7 +87,12 @@
                           <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="155" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="close" min="-2" pref="133" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="168" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -97,20 +102,22 @@
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                  <Component id="ViewAnnouncements" min="-2" max="-2" attributes="0"/>
+                  <Component id="viewAnnouncements" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                  <Component id="ViewOwnInformation" min="-2" max="-2" attributes="0"/>
+                  <Component id="viewOwnInformation" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                  <Component id="ViewOtherPlayers" min="-2" max="-2" attributes="0"/>
+                  <Component id="viewOtherPlayers" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                  <Component id="MakeRequests" min="-2" pref="33" max="-2" attributes="0"/>
-                  <EmptySpace pref="129" max="32767" attributes="0"/>
+                  <Component id="makeRequests" min="-2" pref="33" max="-2" attributes="0"/>
+                  <EmptySpace pref="68" max="32767" attributes="0"/>
+                  <Component id="close" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="ViewAnnouncements">
+        <Component class="javax.swing.JButton" name="viewAnnouncements">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="0" red="0" type="rgb"/>
@@ -124,10 +131,10 @@
             <Property name="text" type="java.lang.String" value="View  Player Announcements"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ViewAnnouncementsActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewAnnouncementsActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="ViewOwnInformation">
+        <Component class="javax.swing.JButton" name="viewOwnInformation">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="0" red="0" type="rgb"/>
@@ -140,8 +147,11 @@
             </Property>
             <Property name="text" type="java.lang.String" value="View Own Information"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewOwnInformationActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="ViewOtherPlayers">
+        <Component class="javax.swing.JButton" name="viewOtherPlayers">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="0" red="0" type="rgb"/>
@@ -154,8 +164,11 @@
             </Property>
             <Property name="text" type="java.lang.String" value="View Other Players&apos; Information"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewOtherPlayersActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="MakeRequests">
+        <Component class="javax.swing.JButton" name="makeRequests">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="0" red="0" type="rgb"/>
@@ -168,6 +181,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Make requests"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="makeRequestsActionPerformed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Properties>
@@ -222,6 +238,23 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JButton" name="close">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="66" red="66" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Exit"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="closeActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>
