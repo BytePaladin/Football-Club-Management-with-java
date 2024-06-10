@@ -1,0 +1,2 @@
+sabit khan,sabit123,forward,10,1,2024-06-10,2025-08-10,1000.0,fit
+farhan rafid,farhan123,forward,11,2,2024-06-10,2025-09-10,1000.0,fit
