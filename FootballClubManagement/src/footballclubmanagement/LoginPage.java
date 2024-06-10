@@ -213,8 +213,7 @@ public class LoginPage extends javax.swing.JFrame {
         if (loginAs.equals("Manager")) {
             Manager manager = FootballClubManagement.readManager();
             if (manager != null && manager.getPerson().getName().equals(name) && manager.getPerson().getPassword().equals(pass)) {
-                FootballClubManagement.loggedInManager = manager;
-                System.out.println(FootballClubManagement.loggedInManager.toString());
+                FootballClubManagement.loggedInManager = manager; 
                 loginMsg.setText("Login Successful");
                 ManagerPage managerPage = new ManagerPage();
                 managerPage.show();

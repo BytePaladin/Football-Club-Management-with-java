@@ -114,6 +114,7 @@ public class ViewAll extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public void setAnnouncements(List<Announcement> announcements) {
+         // TODO add your handling code here:
         List<String> announcementStrings = new ArrayList<>();
         ViewLabel.setText("Announcements");
         for (Announcement ann : announcements) {
@@ -124,6 +125,7 @@ public class ViewAll extends javax.swing.JFrame {
     }
 
     public void setPlayerInfo(List<Player> players) {
+         // TODO add your handling code here:
         List<String> playerStrings = new ArrayList<>();
         ViewLabel.setText("All Player Info");
         for (Player player : players) {
@@ -132,18 +134,38 @@ public class ViewAll extends javax.swing.JFrame {
         String dividers = String.join("\n------------------------------\n", playerStrings);
         ViewArea.setText(dividers);
     }
+    
+    public void setPlayerOwnInfo(Player player) {
+         // TODO add your handling code here:
+        ViewLabel.setText("Player's Own Info");
+        
+        ViewArea.setText(player.toString());
+    }
+    
+    
+    public void setPlayerLimitedInfo(List<Player> players) {
+        List<String> playerStrings = new ArrayList<>();
+        ViewLabel.setText("All Player Info");
+        for (Player player : players) {
+            playerStrings.add(player.limitedToString());
+        }
+        String dividers = String.join("\n------------------------------\n", playerStrings);
+        ViewArea.setText(dividers);
+    }
 
     public void setCoachInfo(List<Coach> coaches) {
+         // TODO add your handling code here:
         List<String> coachStrings = new ArrayList<>();
         ViewLabel.setText("All Coach Info");
         for (Coach coach : coaches) {
-            coachStrings.add(coach.toString());  // Assuming Coach class has a meaningful toString() method
+            coachStrings.add(coach.toString());  
         }
         String dividers = String.join("\n------------------------------\n", coachStrings);
         ViewArea.setText(dividers);
     }
 
     public void setPlayerRequestInfo(List<Request> requests) {
+         // TODO add your handling code here:
         List<String> requestStrings = new ArrayList<>();
         ViewLabel.setText("Player Requests");
         for (Request request : requests) {
@@ -153,7 +175,8 @@ public class ViewAll extends javax.swing.JFrame {
         ViewArea.setText(dividers);
     }
 
-    public void setCoachRequestInfo(List<Request> requests) {
+    public void setCoachRequestInfo(List<Request> requests) { 
+        // TODO add your handling code here:
         String[] requestStrings = new String[requests.size()];
         ViewLabel.setText("Coach Requests");
         for (int i = 0; i < requests.size(); i++) {
@@ -164,12 +187,14 @@ public class ViewAll extends javax.swing.JFrame {
     }
 
      public void setFinancesInfo(String[] playerStrings, double totalContractMoney) {
+         // TODO add your handling code here:
         String players = String.join("\n------------------------------\n", playerStrings);
         String financesInfo = players + "\n---------------------------\nTotal Contract Money: $" + totalContractMoney;
         
         ViewLabel.setText("Finances Information");
         ViewArea.setText(financesInfo);
     }
+     
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

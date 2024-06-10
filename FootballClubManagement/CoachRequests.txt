@@ -1,4 +1,1 @@
-give me money2,sabit,2023-06-08
-give me money1,sabit,2023-06-08
-give me time,sabit,2023-06-08
-give me 1 hour,sabit,2023-06-08
+send me 10000,mr khan,2024-06-10

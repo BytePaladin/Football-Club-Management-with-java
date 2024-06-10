@@ -1,1 +1,1 @@
-salman,pass
+sabit,password

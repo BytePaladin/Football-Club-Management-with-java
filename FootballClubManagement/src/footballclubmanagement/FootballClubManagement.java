@@ -14,9 +14,9 @@ public class FootballClubManagement {
     public static List<Announcement> announcements = new ArrayList<>();
     public static List<Request> playerRequests = new ArrayList<>();
     public static List<Request> coachRequests = new ArrayList<>();
-    public static Player loggedInPlayer;
-    public static Coach loggedInCoach;
-    public static Manager loggedInManager;
+    public static Player loggedInPlayer=null;
+    public static Coach loggedInCoach=null;
+    public static Manager loggedInManager=null;
 
     
     
@@ -444,14 +444,8 @@ public class FootballClubManagement {
 
     
     public static void main(String[] args) {
-        try {
-            readRequests("PlayerRequests.txt");
-            for (Request r : playerRequests) {
-                System.out.println(playerRequests.toString());
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        WelcomePage welcome = new WelcomePage();
+        welcome.show();
+        
     }
 }
