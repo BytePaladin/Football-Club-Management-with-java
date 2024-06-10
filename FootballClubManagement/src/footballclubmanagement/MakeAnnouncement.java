@@ -9,6 +9,7 @@ package footballclubmanagement;
  * @author Sabit
  */
 import java.time.LocalDate;
+
 public class MakeAnnouncement extends javax.swing.JFrame {
 
     /**
@@ -131,9 +132,15 @@ public class MakeAnnouncement extends javax.swing.JFrame {
         FootballClubManagement.readAnnouncements();
         LocalDate date = LocalDate.now();
         String dateString = date.toString();
-        Announcement a = new Announcement(announcementArea.getText(),FootballClubManagement.loggedInManager.getName(),dateString);
-        FootballClubManagement.addAnnouncement(a);
-        publishedLabel.setText("Published");
+        if (FootballClubManagement.loggedInManager != null) {
+            Announcement a = new Announcement(announcementArea.getText(), FootballClubManagement.loggedInManager.getName(), dateString);
+            FootballClubManagement.addAnnouncement(a);
+            publishedLabel.setText("Published");
+        } else if (FootballClubManagement.loggedInCoach != null) {
+            Announcement a = new Announcement(announcementArea.getText(), FootballClubManagement.loggedInCoach.getPerson().getName(), dateString);
+            FootballClubManagement.addAnnouncement(a);
+            publishedLabel.setText("Published");
+        }
     }//GEN-LAST:event_makeAnnActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
