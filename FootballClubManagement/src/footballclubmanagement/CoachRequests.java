@@ -4,6 +4,8 @@
  */
 package footballclubmanagement;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author LENOVO
@@ -30,11 +32,12 @@ public class CoachRequests extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        requestArea = new javax.swing.JTextArea();
+        request = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         send = new javax.swing.JButton();
         close = new javax.swing.JButton();
+        published = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 102));
@@ -51,12 +54,12 @@ public class CoachRequests extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
 
-        requestArea.setBackground(new java.awt.Color(51, 51, 51));
-        requestArea.setColumns(20);
-        requestArea.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        requestArea.setForeground(new java.awt.Color(255, 255, 255));
-        requestArea.setRows(5);
-        jScrollPane1.setViewportView(requestArea);
+        request.setBackground(new java.awt.Color(51, 51, 51));
+        request.setColumns(20);
+        request.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        request.setForeground(new java.awt.Color(255, 255, 255));
+        request.setRows(5);
+        jScrollPane1.setViewportView(request);
 
         jPanel3.setBackground(new java.awt.Color(153, 0, 0));
 
@@ -80,11 +83,24 @@ public class CoachRequests extends javax.swing.JFrame {
         send.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         send.setForeground(new java.awt.Color(255, 255, 255));
         send.setText("Send");
+        send.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sendActionPerformed(evt);
+            }
+        });
 
         close.setBackground(new java.awt.Color(0, 102, 102));
         close.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         close.setForeground(new java.awt.Color(255, 255, 255));
         close.setText("Close");
+        close.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeActionPerformed(evt);
+            }
+        });
+
+        published.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        published.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -95,12 +111,14 @@ public class CoachRequests extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(120, 120, 120)
+                        .addComponent(published, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(send, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,7 +130,8 @@ public class CoachRequests extends javax.swing.JFrame {
                 .addGap(59, 59, 59)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(send)
-                    .addComponent(close))
+                    .addComponent(close)
+                    .addComponent(published))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
 
@@ -153,6 +172,23 @@ public class CoachRequests extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendActionPerformed
+        // TODO add your handling code here:
+        FootballClubManagement.readRequests("CoachRequests.txt");
+        LocalDate date = LocalDate.now();
+        String dateString = date.toString();
+
+        Request req = new Request(request.getText(), FootballClubManagement.loggedInCoach.getPerson().getName(), dateString);
+        FootballClubManagement.addCoachRequest(req);
+        published.setText("Published");
+
+    }//GEN-LAST:event_sendActionPerformed
+
+    private void closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_closeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,7 +233,8 @@ public class CoachRequests extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea requestArea;
+    private javax.swing.JLabel published;
+    private javax.swing.JTextArea request;
     private javax.swing.JButton send;
     // End of variables declaration//GEN-END:variables
 }

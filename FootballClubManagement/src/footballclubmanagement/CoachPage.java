@@ -4,6 +4,8 @@
  */
 package footballclubmanagement;
 
+import java.util.List;
+
 /**
  *
  * @author LENOVO
@@ -33,6 +35,7 @@ public class CoachPage extends javax.swing.JFrame {
         MakeRequest = new javax.swing.JButton();
         CoachInformation = new javax.swing.JButton();
         ViewAnnouncement = new javax.swing.JButton();
+        close = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(300, 100));
@@ -46,24 +49,64 @@ public class CoachPage extends javax.swing.JFrame {
         jLabel1.setText("   COACH PAGE");
 
         MakeAnnouncement.setBackground(new java.awt.Color(51, 51, 255));
-        MakeAnnouncement.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        MakeAnnouncement.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        MakeAnnouncement.setForeground(new java.awt.Color(0, 0, 0));
         MakeAnnouncement.setText("Make Announcement");
+        MakeAnnouncement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MakeAnnouncementActionPerformed(evt);
+            }
+        });
 
         PlayerInformation.setBackground(new java.awt.Color(51, 51, 255));
-        PlayerInformation.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        PlayerInformation.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        PlayerInformation.setForeground(new java.awt.Color(0, 0, 0));
         PlayerInformation.setText("Player Information");
+        PlayerInformation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PlayerInformationActionPerformed(evt);
+            }
+        });
 
         MakeRequest.setBackground(new java.awt.Color(51, 51, 255));
-        MakeRequest.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        MakeRequest.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        MakeRequest.setForeground(new java.awt.Color(0, 0, 0));
         MakeRequest.setText("Make Request");
+        MakeRequest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MakeRequestActionPerformed(evt);
+            }
+        });
 
         CoachInformation.setBackground(new java.awt.Color(51, 51, 255));
-        CoachInformation.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        CoachInformation.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        CoachInformation.setForeground(new java.awt.Color(0, 0, 0));
         CoachInformation.setText("Coach Information");
+        CoachInformation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CoachInformationActionPerformed(evt);
+            }
+        });
 
         ViewAnnouncement.setBackground(new java.awt.Color(51, 51, 255));
-        ViewAnnouncement.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ViewAnnouncement.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        ViewAnnouncement.setForeground(new java.awt.Color(0, 0, 0));
         ViewAnnouncement.setText("View Announcement");
+        ViewAnnouncement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewAnnouncementActionPerformed(evt);
+            }
+        });
+
+        close.setBackground(new java.awt.Color(102, 102, 255));
+        close.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        close.setForeground(new java.awt.Color(255, 255, 255));
+        close.setText("Exit");
+        close.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -81,6 +124,10 @@ public class CoachPage extends javax.swing.JFrame {
                         .addComponent(MakeRequest, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(MakeAnnouncement, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)))
                 .addContainerGap(275, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(108, 108, 108))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,7 +144,9 @@ public class CoachPage extends javax.swing.JFrame {
                 .addComponent(MakeRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(MakeAnnouncement, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addComponent(close)
+                .addGap(40, 40, 40))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -113,6 +162,49 @@ public class CoachPage extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void MakeAnnouncementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MakeAnnouncementActionPerformed
+        // TODO add your handling code here:
+        MakeAnnouncement makeann = new MakeAnnouncement();
+        makeann.show();
+    }//GEN-LAST:event_MakeAnnouncementActionPerformed
+
+    private void ViewAnnouncementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewAnnouncementActionPerformed
+        // TODO add your handling code here:
+        List<Announcement> ann = FootballClubManagement.readAnnouncements();
+
+        ViewAll viewAnn = new ViewAll();
+        viewAnn.setAnnouncements(ann);
+
+        viewAnn.show();
+    }//GEN-LAST:event_ViewAnnouncementActionPerformed
+
+    private void PlayerInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlayerInformationActionPerformed
+        // TODO add your handling code here:
+        List<Player> p = FootballClubManagement.readPlayer();
+        ViewAll viewP = new ViewAll();
+        viewP.setPlayerLimitedInfo(p);
+        viewP.show();
+    }//GEN-LAST:event_PlayerInformationActionPerformed
+
+    private void CoachInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CoachInformationActionPerformed
+        // TODO add your handling code here:
+        List<Coach> c = FootballClubManagement.readCoach();
+        ViewAll viewC = new ViewAll();
+        viewC.setCoachInfo(c);
+        viewC.show();
+    }//GEN-LAST:event_CoachInformationActionPerformed
+
+    private void MakeRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MakeRequestActionPerformed
+        // TODO add your handling code here:
+        CoachRequests cr = new CoachRequests();
+        cr.show();
+    }//GEN-LAST:event_MakeRequestActionPerformed
+
+    private void closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_closeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,6 +247,7 @@ public class CoachPage extends javax.swing.JFrame {
     private javax.swing.JButton MakeRequest;
     private javax.swing.JButton PlayerInformation;
     private javax.swing.JButton ViewAnnouncement;
+    private javax.swing.JButton close;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
